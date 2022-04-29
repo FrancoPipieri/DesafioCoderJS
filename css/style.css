@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+}   
+
+body{
+    background-image: url(../img/fondo.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+header{
+    background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 70%);
+    display: block;
+}
+
+.head{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.head h1{
+    width: 90%;
+    padding-left: 27%;
+    align-self: center;
+    font-size: 2rem;
+    color: rgb(219, 167, 22);
+}
+
+.imgLogo{
+    width: 8%;
+    margin: 10px;
+    margin-left: 20px;
+    filter: drop-shadow(0 0 8px rgb(219, 167, 22))
+}
+
+.pie{
+    background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 70%);
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer_nav {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    justify-content: center;
+}
+  
+.pie__titulo{
+    color: rgb(219, 167, 22);
+    padding: 10px 0;
+    font-size: 1.2rem;
+    text-align: center; 
+}
+  
+.pie__enlace{
+    display: flex;
+    padding: 0 30px;
+    color: rgb(219, 167, 22);
+    font-size: 1rem;
+}
+
+.pie__enlace:hover{
+      font-weight: 600;
+      transition: all 0.2s;
+}
+
+.pie__enlace p{
+    align-self: center;
+}
+
+.pie__enlace img{
+    scale: 0.8;
+}
