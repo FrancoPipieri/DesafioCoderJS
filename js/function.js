@@ -12,15 +12,20 @@ let edad = Number(prompt('Ingresa tu Edad'));
 
 if (edad < 12){
     alert(datoNombre + ' eres un niño');
+    console.log(datoNombre + ' eres un niño');
 } else if ((edad > 11) && (edad < 18)){
     alert(datoNombre + ' es un adolecente');
+    console.log(datoNombre + ' es un adolecente');
 }else if ((edad > 18) && (edad <= 60)){
     alert(datoNombre + ' es un adulto');
+    console.log(datoNombre + ' es un adulto');
 }else{
     alert(datoNombre + ' es un anciano');
+    console.log(datoNombre + ' es un anciano');
 }
 
-let numero=Number(prompt('Indica un Numero'))
+let numero=Number(prompt('Indica un Numero'));
 for(let i=1; i<=numero; i++){
-    alert('Hola ' + datoNombre)
+    alert('Hola ' + datoNombre);
+    console.log('HOLA ' + datoNombre);
 }
