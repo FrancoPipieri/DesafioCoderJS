@@ -1,31 +1,32 @@
-let datoNombre = prompt('Ingresa tu nombre');
+let saldo = Number(prompt('Ingresa el monto que te queda a favor.'));
+let salarioMensual = Number(prompt('Ingresa el Salario del mes actual.'));
+let total = saldo + salarioMensual;
+console.log('Te sobraron del mes pasado $' + saldo);
+console.log('Este mes te Ingreso $' + salarioMensual);
+alert(`Tu cuenta es $${total}`);
+console.log(`Tu saldo es $${total}`);
+let resto = false;
 
-datoNombre = datoNombre.toUpperCase();
 
-if (datoNombre==='FRANCO'){
-    alert ('Ganaste un lindo Premio');
-}else{
-    alert('Perdiste Amiguito');
+function cuenta(saldo, salarioMensual){
+    if( total >1){
+        return true;
+    }else if(total <=0){
+        return false;
+    }
 }
 
-let edad = Number(prompt('Ingresa tu Edad'));
-
-if (edad < 12){
-    alert(datoNombre + ' eres un niño');
-    console.log(datoNombre + ' eres un niño');
-} else if ((edad > 11) && (edad < 18)){
-    alert(datoNombre + ' es un adolecente');
-    console.log(datoNombre + ' es un adolecente');
-}else if ((edad > 18) && (edad <= 60)){
-    alert(datoNombre + ' es un adulto');
-    console.log(datoNombre + ' es un adulto');
-}else{
-    alert(datoNombre + ' es un anciano');
-    console.log(datoNombre + ' es un anciano');
+while(resto !==true){
+    let gasto = Number(prompt('Ingresa tu Gasto.'));
+    let resultado = cuenta(saldo,salarioMensual);
+    if(resultado){
+        total -= gasto ;
+        alert(`Te quedan $${total}`);
+        console.log(`Te quedan $${total}`);
+    }else{
+        alert('Te quedaste sin dinero.');
+        resto = true;
+    }
 }
 
-let numero=Number(prompt('Indica un Numero'));
-for(let i=1; i<=numero; i++){
-    alert('Hola ' + datoNombre);
-    console.log('HOLA ' + datoNombre);
-}
+
