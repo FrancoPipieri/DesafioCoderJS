@@ -7,26 +7,25 @@ alert(`Tu cuenta es $${total}`);
 console.log(`Tu saldo es $${total}`);
 let resto = false;
 
+function cuenta(ingreso, egreso) {
+  let presupuesto = ingreso - egreso;
 
-function cuenta(saldo, salarioMensual){
-    if( total >1){
-        return true;
-    }else if(total <=0){
-        return false;
-    }
+  if (presupuesto > 1) {
+    return true;
+  } else if (presupuesto <= 0) {
+    return false;
+  }
 }
 
-while(resto !==true){
-    let gasto = Number(prompt('Ingresa tu Gasto.'));
-    let resultado = cuenta(saldo,salarioMensual);
-    if(resultado){
-        total -= gasto ;
-        alert(`Te quedan $${total}`);
-        console.log(`Te quedan $${total}`);
-    }else{
-        alert('Te quedaste sin dinero.');
-        resto = true;
-    }
+while (resto !== true) {
+  let gasto = Number(prompt('Ingresa tu Gasto.'));
+  let resultado = cuenta(total, gasto);
+  total -= gasto;
+  if (resultado) {
+    alert(`Te quedan $${total}`)
+    console.log(`Te quedan $${total}`);
+  } else {
+    alert('Te quedaste sin dinero.');
+    resto = true;
+  }
 }
-
-
