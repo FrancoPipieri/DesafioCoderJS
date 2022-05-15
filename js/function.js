@@ -1,31 +1,31 @@
-let saldo = Number(prompt('Ingresa el monto que te queda a favor.'));
-let salarioMensual = Number(prompt('Ingresa el Salario del mes actual.'));
-let total = saldo + salarioMensual;
-console.log('Te sobraron del mes pasado $' + saldo);
-console.log('Este mes te Ingreso $' + salarioMensual);
-alert(`Tu cuenta es $${total}`);
-console.log(`Tu saldo es $${total}`);
-let resto = false;
+class Articulo{
 
-function cuenta(ingreso, egreso) {
-  let presupuesto = ingreso - egreso;
-
-  if (presupuesto > 1) {
-    return true;
-  } else if (presupuesto <= 0) {
-    return false;
-  }
+      constructor(marca, diametro, color, tinta, cantidad){
+        this.marca=marca;
+        this.diametro=diametro;
+        this.color=color;
+        this.tinta=tinta;
+        this.cantidad=cantidad;
+      }
+      articuloCompleto(){
+        return this.marca + ` ` + this.cantidad + `, ` + this.tinta + `, ` + this.color + `, ` + this.diametro
+      }
 }
 
-while (resto !== true) {
-  let gasto = Number(prompt('Ingresa tu Gasto.'));
-  let resultado = cuenta(total, gasto);
-  total -= gasto;
-  if (resultado) {
-    alert(`Te quedan $${total}`)
-    console.log(`Te quedan $${total}`);
-  } else {
-    alert('Te quedaste sin dinero.');
-    resto = true;
-  }
+let cantArt = Number(prompt(`Cuantos Articulos Desea?`));
+
+let carrito = [];
+
+for(let i = 0; i<cantArt; i++){
+  
+    let articulo = new Articulo(
+      prompt(`Ingrese una marca: UniPosca, Grog, Markal`),
+      prompt(`Ingrese el diametro del Marker: de 0.1mm a 25mm`),
+      prompt(`Ingrese el color que desee:`),
+      prompt(`Ingrese el tipo de tinta que desea: al Agua o base Indeleble`),
+      prompt(`Ingrese la cantidad que desea de este articulo:`)
+    );
+    carrito.push(articulo);
 }
+
+console.log(carrito)

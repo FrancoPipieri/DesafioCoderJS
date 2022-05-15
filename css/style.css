@@ -30,10 +30,11 @@ header{
 
 .head h1{
     width: 90%;
-    padding-left: 27%;
+    padding-left: 34%;
     align-self: center;
     font-size: 2rem;
     color: rgb(219, 167, 22);
+    line-height: 1;
 }
 
 .imgLogo{
@@ -46,7 +47,7 @@ header{
 .pie{
     background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 70%);
     flex-direction: column;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
