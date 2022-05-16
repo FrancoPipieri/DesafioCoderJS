@@ -81,8 +81,10 @@ header{
 
 .pie__enlace p{
     align-self: center;
+    margin: 0%;
 }
 
 .pie__enlace img{
-    scale: 0.8;
+    object-fit: scale-down;
+    margin: 3px;
 }
