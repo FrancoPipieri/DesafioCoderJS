@@ -136,5 +136,5 @@ function mostrarMenu(){
     let artBuscado = prompt(`Ingrese la Marca del articulo que quiere buscar`);
     let encontrado = carrito.filter((articulo)=>articulo.marca.indexOf(artBuscado)!==-1);
 
-    console.log(`Articulo Encontrado: `, encontrado)
+    console.log(`Articulo Encontrado: `, encontrado.marca + encontrado.diametro + encontrado.color)
   }
