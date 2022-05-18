@@ -62,9 +62,11 @@ function mostrarMenu(){
         }
         case 4: {
         buscarArticulo();
+        break
         }
         default:{
         alert(`Opcion Invalida`)
+        break
         }
       }
 
@@ -133,8 +135,8 @@ function mostrarMenu(){
   }
 
   function buscarArticulo(){
-    let artBuscado = prompt(`Ingrese la Marca del articulo que quiere buscar`);
+    let artBuscado = prompt(`Ingrese la Marca del articulo que quiere buscar`).toUpperCase();
     let encontrado = carrito.filter((articulo)=>articulo.marca.indexOf(artBuscado)!==-1);
 
-    console.log(`Articulo Encontrado: `, encontrado.marca + encontrado.diametro + encontrado.color)
+    console.log(`Articulo Encontrado: `, encontrado)
   }
