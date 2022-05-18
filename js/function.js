@@ -44,7 +44,8 @@ function mostrarMenu(){
     let compra = Number(prompt(`Seleccione una opcion de Compra:
                               1. Agregar Articulos
                               2. Eliminar Articulos
-                              3. Listar Articulos`));
+                              3. Listar Articulos
+                              4. Buscar Articulo`));
 
       switch(compra){
         case 1: {
@@ -58,6 +59,9 @@ function mostrarMenu(){
         case 3: {
         listarArticulo();
         break;
+        }
+        case 4: {
+        buscarArticulo();
         }
         default:{
         alert(`Opcion Invalida`)
@@ -126,4 +130,11 @@ function mostrarMenu(){
         console.log(articulo.id+ ` ` +articulo.marca+ ` ` +articulo.color+ ` ` + articulo.diametro);
       }
     )
+  }
+
+  function buscarArticulo(){
+    let artBuscado = prompt(`Ingrese la Marca del articulo que quiere buscar`);
+    let encontrado = carrito.filter((articulo)=>articulo.marca.indexOf(artBuscado)!==-1);
+
+    console.log(`Articulo Encontrado: `, encontrado)
   }
