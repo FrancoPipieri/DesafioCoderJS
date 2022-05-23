@@ -45,7 +45,8 @@ function mostrarMenu(){
                               1. Agregar Articulos
                               2. Eliminar Articulos
                               3. Listar Articulos
-                              4. Buscar Articulo`));
+                              4. Buscar Articulo
+                              5. Atras`));
 
       switch(compra){
         case 1: {
@@ -65,7 +66,7 @@ function mostrarMenu(){
         break
         }
         default:{
-        alert(`Opcion Invalida`)
+        alert(`Elija Otra Vez`)
         break
         }
       }
@@ -125,13 +126,36 @@ function mostrarMenu(){
   }
 
   function listarArticulo(){
-    console.log(`LISTA DE ARTICULOS DEL CARRITO:`)
 
-    carrito.forEach(
-      (articulo)=>{
-        console.log(articulo.id+ ` ` +articulo.marca+ ` ` +articulo.color+ ` ` + articulo.diametro);
-      }
-    )
+    let div = document.getElementById("carrito")
+
+    let listado = document.getElementById("carritoCompras");
+    listado = document.createElement("div")
+    listado.id = "carritoCompras";
+
+    div.appendChild(listado);
+
+    let tituloCarrito = document.createElement("h2");
+    tituloCarrito.textContent = "CARRITO DE COMPRAS: ";
+    listado.appendChild(tituloCarrito)
+
+    
+    let carritoLista = document.getElementById("listado");
+
+    if(!carritoLista)
+    {
+    carritoLista = document.createElement("ul");
+    }
+    carritoLista.innerHTML="";
+    
+    
+    carrito.forEach((articulo)=>{
+        const nodoli = document.createElement("li");
+        nodoli.innerHTML=`id: ${articulo.id} articulo: ${articulo.marca} ${articulo.color} ${articulo.diametro} cantidad: ${articulo.cantidad}`;
+        carritoLista.appendChild(nodoli);
+    });
+    
+    listado.appendChild(carritoLista);
   }
 
   function buscarArticulo(){

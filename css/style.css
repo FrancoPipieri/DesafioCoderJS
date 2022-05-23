@@ -88,3 +88,14 @@ header{
     object-fit: scale-down;
     margin: 3px;
 }
+#carritoCompras{
+    width: 60%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: aquamarine;
+}
+#carritoCompras h2{
+    line-height: 1;
+    font-size: 1.6rem;
+    padding: 6px;
+}
