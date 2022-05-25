@@ -161,10 +161,11 @@ function removeShoppingCartItem(event) {
 function cambioCantidad(event) {
   const input = event.target;
   input.value <= 0 ? (input.value = 1) : null;
-  actuazilarCarritoCompra();
+  actualizarCarritoCompra();
 }
 
 function comprarButtonClicked() {
   contenedorDelCarrito.innerHTML = '';
-  actuazilarCarritoCompra();
+  console.log("Su Compra Fue un Exito")
+  actualizarCarritoCompra();
 }
