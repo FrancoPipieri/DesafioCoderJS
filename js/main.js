@@ -22,19 +22,6 @@ function agregarACarritoClicked(event) {
 }
 
 function agregarItemAlCarrito(itemTitle, itemPrice, itemImage) {
-  const tituloElementos = contenedorDelCarrito.getElementsByClassName(
-    'tituloDeItem'
-  );
-  for (let i = 0; i < tituloElementos.length; i++) {
-    if (tituloElementos[i].innerText === itemTitle) {
-      let elementQuantity = tituloElementos[i].parentElement.parentElement.parentElement.querySelector('.cantidadItemsCarrito');
-      elementQuantity.value++;
-
-      $('.toast').toast('show');
-      actualizCarritoCompraTotal();
-      return;
-    }
-  }
   let contendioDelCarrito = 0;
   const renglonCarrito = document.createElement('div');
 
@@ -138,10 +125,10 @@ function agregarItemAlCarrito(itemTitle, itemPrice, itemImage) {
     .querySelector('.cantidadItemsCarrito')
     .addEventListener('change', cambioCantidad);
 
-  actuazilarCarritoCompral();
+  actualizarCarritoCompra();
 }
 
-function actuazilarCarritoCompra() {
+function actualizarCarritoCompra() {
   let total = 0;
   const totalCarritoCompra = document.querySelector('.totalCarritoCompra');
 
