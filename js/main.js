@@ -1,15 +1,32 @@
+class Item{
+  constructor(id,itemTitle,itemPrice,itemImage,itemQuantity,itemColor,itemSize){
+    this.id=id;
+    this.itemTitle=itemTitle;
+    this.itemPrice=itemPrice;
+    this.itemImage=itemImage;
+    this.itemQuantity=itemQuantity;
+    this.itemColor=itemColor;
+    this.itemSize=itemSize;
+  }
+}
+
+
+let carrito = JSON.parse(sessionStorage.getItem('carrito') || '[]')
+
+
+// Boton de seleccion
 const agregarArticuloACarrito = document.querySelectorAll('.agregarACarrito');
 agregarArticuloACarrito.forEach((agregarACarrito) => {
   agregarACarrito.addEventListener('click', agregarACarritoClicked);
 });
 
+// Boton de Comprar
 const comprarButton = document.querySelector('.comprarButton');
 comprarButton.addEventListener('click', comprarButtonClicked);
 
-const contenedorDelCarrito = document.querySelector(
-  '.contenedorDelCarrito'
-);
+const contenedorDelCarrito = document.querySelector('.contenedorDelCarrito');
 
+// Seleccionar el Item a Comprar
 function agregarACarritoClicked(event) {
   const button = event.target;
   const item = button.closest('.item');
@@ -19,115 +36,152 @@ function agregarACarritoClicked(event) {
   const itemImage = item.querySelector('.item-image').src;
 
   agregarItemAlCarrito(itemTitle, itemPrice, itemImage);
+  mostrarCarrito();
+
+  // Ejecutar inputs
+
+  let itemQuantity = document.querySelectorAll('.cantidadItemsCarrito');
+  let itemColor = document.querySelectorAll('.colorItemsCarrito');
+  let itemSize = document.querySelectorAll('.sizeItems');
+
+  itemQuantity.forEach((elemento)=>{
+    elemento.addEventListener('change', modificarCantidad)
+  })
+  itemColor.forEach((elemento)=>{
+    elemento.addEventListener('change', modificarColor)
+  })
+  itemSize.forEach((elemento)=>{
+    elemento.addEventListener('change', modificarSize)
+  })
 }
 
+let contenidoDelCarrito = 0;
+mostrarCarrito();
+
+//Agregar el item seleccionado al carrito
+
 function agregarItemAlCarrito(itemTitle, itemPrice, itemImage) {
-  let contendioDelCarrito = 0;
+  let id = 0;
+  if(carrito.length >0){
+    id = carrito[carrito.length-1].id+1
+  }
+  let newItem = new Item(id,itemTitle, itemPrice, itemImage, "1", null, null);
+  carrito.push(newItem);
+}
+
+// Mostrar carrito de compras
+function mostrarCarrito() {
+  document.querySelector('.contenedorDelCarrito').innerHTML = '';
+   
+  carrito.forEach(producto => {
+
   const renglonCarrito = document.createElement('div');
 
-    if(itemTitle === "Marker Uniposca"){
-      contendioDelCarrito = `<div class="row itemCarritoCompras">
+    if(producto.itemTitle === "Marker Uniposca"){
+      contenidoDelCarrito = `<div class="row itemCarritoCompras">
         <div class="col-3">
           <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
-            <img src=${itemImage} class="imagenEnCarrito">
-            <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${itemTitle}</h6>
+            <img src=${producto.itemImage} class="imagenEnCarrito">
+            <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
         </div>
         <div class="col-2">
           <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
-            <p class="item-price mb-0 precioItemCarrito">${itemPrice}</p>
+            <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
         </div>
         <div class="col-2 align-self-center">
-        <input class="inputColor" type="text">
+        <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
         </div>
         <div class="col-5">
           <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
-              <input class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
+              <input  id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
-            <select class="col-4 ms-3 align-self-center">
-              <option value="1.7mm">1.7mm</option>
-              <option value="1.3">1.3mm</option>
-              <option value="2.5">2.5mm</option>
-              <option value="8">8mm</option>
-              <option value="15">15mm</option>
+            <select id="size-${producto.id}" class="col-4 ms-3 align-self-center sizeItems">
+              <option>Seleccione una Opcion</option>
+              <option>1.7mm</option>
+              <option>1.3mm</option>
+              <option>2.5mm</option>
+              <option>8mm</option>
+              <option>15mm</option>
             </select>
               <button class="btnBorrar btn btn-danger buttonDelete col-2" type="button">X</button>
           </div>
         </div>
       </div>`;}
-    else if(itemTitle === "Squeezer Grog"){
-      contendioDelCarrito = `<div class="row itemCarritoCompras">
+    else if(producto.itemTitle === "Squeezer Grog"){
+      contenidoDelCarrito = `<div class="row itemCarritoCompras">
       <div class="col-3">
           <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
-              <img src=${itemImage} class="imagenEnCarrito">
-              <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${itemTitle}</h6>
+              <img src=${producto.itemImage} class="imagenEnCarrito">
+              <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
       </div>
       <div class="col-2">
           <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
-              <p class="item-price mb-0 precioItemCarrito">${itemPrice}</p>
+              <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
       </div>
       <div class="col-2 align-self-center">
-      <input class="inputColor" type="text">
+      <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
       </div>
       <div class="col-5 ">
           <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
-              <input class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
+              <input id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
-              <select class="col-4 ms-3 align-self-center">
-              <option value="5mm">5mm</option>
-              <option value="10">10mm</option>
-              <option value="20">20mm</option>
-              <option value="25">25mm</option>
+              <select id="size-${producto.id}" class="col-4 ms-3 align-self-center sizeItems">
+              <option>Seleccione una Opcion</option>
+              <option>5mm</option>
+              <option>10mm</option>
+              <option>20mm</option>
+              <option>25mm</option>
               </select>
               <button class="btnBorrar btn btn-danger buttonDelete col-2" type="button">X</button>
           </div>
       </div>
       </div>`;  
-    }else if(itemTitle === "Crayon Markal"){
-      contendioDelCarrito = `<div class="row itemCarritoCompras">
+    }else if(producto.itemTitle === "Crayon Markal"){
+      contenidoDelCarrito = `<div class="row itemCarritoCompras">
       <div class="col-3">
           <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
-              <img src=${itemImage} class="imagenEnCarrito">
-              <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${itemTitle}</h6>
+              <img src=${producto.itemImage} class="imagenEnCarrito">
+              <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
       </div>
       <div class="col-2">
           <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
-              <p class="item-price mb-0 precioItemCarrito">${itemPrice}</p>
+              <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
       </div>
       <div class="col-2 align-self-center">
-      <input class="inputColor" type="text">
+      <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
       </div>
       <div class="col-5">
           <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
-              <input class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
+              <input id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
-              <select class="col-4 ms-3">
-              <option value="17mm">17mm</option>
+              <select id="size-${producto.id}" class="col-4 ms-3 sizeItems">
+              <option>Seleccione una Opcion</option>
+              <option>17mm</option>
               </select>
               <button class="btnBorrar btn btn-danger buttonDelete col-2" type="button">X</button>
           </div>
       </div>
     </div>`;
     }
-  renglonCarrito.innerHTML = contendioDelCarrito;
+  renglonCarrito.innerHTML = contenidoDelCarrito;
   contenedorDelCarrito.append(renglonCarrito);
+
 
   renglonCarrito
     .querySelector('.buttonDelete')
     .addEventListener('click', removeShoppingCartItem);
 
-  renglonCarrito
-    .querySelector('.cantidadItemsCarrito')
-    .addEventListener('change', cambioCantidad);
-
   actualizarCarritoCompra();
+  })
 }
 
+// Actualizar precios
 function actualizarCarritoCompra() {
   let total = 0;
   const totalCarritoCompra = document.querySelector('.totalCarritoCompra');
@@ -152,20 +206,58 @@ function actualizarCarritoCompra() {
   totalCarritoCompra.innerHTML = `   ${total.toFixed(2)} $`;
 }
 
+// Eliminar Item del Carrito
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
-  buttonClicked.closest('.itemCarritoCompras').remove();
-  actuazilarCarritoCompra();
+  const index = buttonClicked.dataset.productIndex;
+  buttonClicked.closest('.itemCarritoCompras').parentNode.remove();
+  carrito.splice(index, 1);
+  mostrarCarrito();
+  sessionStorage.setItem('carrito', JSON.stringify(carrito));
+  actualizarCarritoCompra()
 }
 
-function cambioCantidad(event) {
-  const input = event.target;
-  input.value <= 0 ? (input.value = 1) : null;
-  actualizarCarritoCompra();
-}
-
+// Boton Comprar
 function comprarButtonClicked() {
-  contenedorDelCarrito.innerHTML = '';
-  console.log("Su Compra Fue un Exito")
-  actualizarCarritoCompra();
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+    carrito = [];
+    contenedorDelCarrito.innerHTML = '';
+    console.log("Su Compra Fue un Exito");
+    actualizarCarritoCompra();
+}
+
+// Modificar Inputs del Carrito
+function modificarCantidad(event){
+  if(event.target.value <=0){
+    event.target.value = 1
+  }
+  let item = carrito.findIndex((elemento)=>{
+    return `cant-${elemento.id}` == event.target.id
+  })
+ 
+  carrito[item].itemQuantity = event.target.value;
+  sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarritoCompra()
+}
+
+function modificarColor(event){
+
+  let item = carrito.findIndex((elemento)=>{
+    return `color-${elemento.id}` == event.target.id
+  })
+  console.log(item)
+  carrito[item].itemColor = event.target.value;
+  sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarritoCompra()
+}
+
+function modificarSize(event){
+
+  let item = carrito.findIndex((elemento)=>{
+    return `size-${elemento.id}` == event.target.id
+  })
+  console.log(item)
+  carrito[item].itemSize = event.target.value;
+  sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarritoCompra()
 }
