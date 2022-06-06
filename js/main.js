@@ -228,36 +228,38 @@ function comprarButtonClicked() {
 
 // Modificar Inputs del Carrito
 function modificarCantidad(event){
-  if(event.target.value <=0){
-    event.target.value = 1
-  }
+  let input = event.target;
+  input.value <=0 ? (input.value=1) : null;
+
   let item = carrito.findIndex((elemento)=>{
-    return `cant-${elemento.id}` == event.target.id
+    return `cant-${elemento.id}` == input.id
   })
  
-  carrito[item].itemQuantity = event.target.value;
+  carrito[item].itemQuantity = input.value;
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarritoCompra()
 }
 
 function modificarColor(event){
+  let input = event.target;
 
   let item = carrito.findIndex((elemento)=>{
-    return `color-${elemento.id}` == event.target.id
+    return `color-${elemento.id}` == input.id
   })
-  console.log(item)
-  carrito[item].itemColor = event.target.value;
+
+  carrito[item].itemColor = input.value;
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarritoCompra()
 }
 
 function modificarSize(event){
+  let input = event.target;
 
   let item = carrito.findIndex((elemento)=>{
-    return `size-${elemento.id}` == event.target.id
+    return `size-${elemento.id}` == input.id
   })
-  console.log(item)
-  carrito[item].itemSize = event.target.value;
+
+  carrito[item].itemSize = input.value;
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarritoCompra()
 }

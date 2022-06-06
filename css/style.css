@@ -175,3 +175,6 @@ header{
     border: 2px solid gray;
     transition: all 0.8s;
 }
+.btn:focus{
+    box-shadow: none;
+}
