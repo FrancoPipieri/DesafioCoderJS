@@ -140,8 +140,8 @@ header{
     background-color: rgba(181, 187, 185, 0.8);
     color: rgb(47, 45, 40);
 }
-#carritoCompras h2{
-    line-height: 1;
+h2{
+    line-height: 1.6;
     font-size: 1.6rem;
     font-weight: bold;
     padding: 6px;

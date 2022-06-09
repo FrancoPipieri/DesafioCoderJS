@@ -219,11 +219,24 @@ function removeShoppingCartItem(event) {
 
 // Boton Comprar
 function comprarButtonClicked() {
-    sessionStorage.setItem("carrito", JSON.stringify(carrito));
-    carrito = [];
-    contenedorDelCarrito.innerHTML = '';
-    console.log("Su Compra Fue un Exito");
-    actualizarCarritoCompra();
+
+  Swal.fire({
+    title:'Confirmar Compra',
+    text: 'Desea concluir la compra?',
+    icon: 'success',
+    confirmButtonText: 'Finalizar',
+    cancelButtonText: 'Seguir Comprando',
+    showCancelButton: true,
+}).then((result)=>{
+    if(result.isConfirmed)
+    {
+      sessionStorage.setItem("carrito", JSON.stringify(carrito));
+      carrito = [];
+      contenedorDelCarrito.innerHTML = '';
+      actualizarCarritoCompra();
+    }
+})
+actualizarCarritoCompra();
 }
 
 // Modificar Inputs del Carrito
