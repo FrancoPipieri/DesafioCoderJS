@@ -19,7 +19,7 @@ body{
 }
 
 header{
-    background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 70%);
+    background: radial-gradient(circle, rgb(37, 36, 36) 0%, rgb(0, 0, 0) 70%);
     display: block;
 }
 
@@ -51,7 +51,7 @@ header{
     padding: 8px;
 }
 .card{
-    width: 75%;
+    width: 70%;
     margin: 10px auto;
     display: flex;
     flex-direction: row;
@@ -89,7 +89,7 @@ header{
 /* End Cards */
 /* Footer */
 .pie{
-    background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 70%);
+    background: radial-gradient(circle, rgb(37, 36, 36) 0%, rgb(0, 0, 0) 70%);
     flex-direction: column;
     position: relative;
     bottom: 0;
@@ -134,7 +134,7 @@ header{
 /* End Footer */
 /* Carrito de Compras */
 #carritoCompras{
-    width: 70%;
+    width: 60%;
     margin: 20px auto;
     padding: 10px;
     background-color: rgba(181, 187, 185, 0.8);

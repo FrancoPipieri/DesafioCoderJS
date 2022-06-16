@@ -13,13 +13,6 @@ class Item{
 
 let carrito = JSON.parse(sessionStorage.getItem('carrito') || '[]')
 
-
-// Boton de seleccion
-const agregarArticuloACarrito = document.querySelectorAll('.agregarACarrito');
-agregarArticuloACarrito.forEach((agregarACarrito) => {
-  agregarACarrito.addEventListener('click', agregarACarritoClicked);
-});
-
 // Boton de Comprar
 const comprarButton = document.querySelector('.comprarButton');
 comprarButton.addEventListener('click', comprarButtonClicked);
