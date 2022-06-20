@@ -178,3 +178,6 @@ h2{
 .btn:focus{
     box-shadow: none;
 }
+.swal2-icon-show{
+    overflow: hidden;
+}
