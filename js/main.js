@@ -71,15 +71,15 @@ function mostrarCarrito() {
   const renglonCarrito = document.createElement('div');
 
     if(producto.itemTitle === "Marker Uniposca"){
-      contenidoDelCarrito = `<div class="row itemCarritoCompras">
+      contenidoDelCarrito = `<div class="row itemCarritoCompras border-bottom">
         <div class="col-3">
-          <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
+          <div class="shopping-cart-item d-flex align-items-center h-100 ">
             <img src=${producto.itemImage} class="imagenEnCarrito">
             <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
         </div>
         <div class="col-2">
-          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
+          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 ">
             <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
         </div>
@@ -87,7 +87,7 @@ function mostrarCarrito() {
         <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
         </div>
         <div class="col-5">
-          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
+          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 ">
               <input  id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
             <select id="size-${producto.id}" class="col-4 ms-3 align-self-center sizeItems">
@@ -103,15 +103,15 @@ function mostrarCarrito() {
         </div>
       </div>`;}
     else if(producto.itemTitle === "Squeezer Grog"){
-      contenidoDelCarrito = `<div class="row itemCarritoCompras">
+      contenidoDelCarrito = `<div class="row itemCarritoCompras border-bottom">
       <div class="col-3">
-          <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
+          <div class="shopping-cart-item d-flex align-items-center h-100">
               <img src=${producto.itemImage} class="imagenEnCarrito">
               <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
       </div>
       <div class="col-2">
-          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
+          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100">
               <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
       </div>
@@ -119,7 +119,7 @@ function mostrarCarrito() {
       <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
       </div>
       <div class="col-5 ">
-          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
+          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100">
               <input id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
               <select id="size-${producto.id}" class="col-4 ms-3 align-self-center sizeItems">
@@ -134,15 +134,15 @@ function mostrarCarrito() {
       </div>
       </div>`;  
     }else if(producto.itemTitle === "Crayon Markal"){
-      contenidoDelCarrito = `<div class="row itemCarritoCompras">
+      contenidoDelCarrito = `<div class="row itemCarritoCompras border-bottom">
       <div class="col-3">
-          <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom">
+          <div class="shopping-cart-item d-flex align-items-center h-100 ">
               <img src=${producto.itemImage} class="imagenEnCarrito">
               <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
           </div>
       </div>
       <div class="col-2">
-          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 border-bottom">
+          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 ">
               <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
           </div>
       </div>
@@ -150,7 +150,7 @@ function mostrarCarrito() {
       <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
       </div>
       <div class="col-5">
-          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom">
+          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 ">
               <input id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
 
               <select id="size-${producto.id}" class="col-4 ms-3 sizeItems">
@@ -161,6 +161,34 @@ function mostrarCarrito() {
           </div>
       </div>
     </div>`;
+    }else if(producto.itemTitle === "Aerosol Montana Hardcore"){
+      contenidoDelCarrito = `<div class="row itemCarritoCompras border-bottom">
+      <div class="col-3">
+          <div class="shopping-cart-item d-flex align-items-center h-100 ">
+              <img src=${producto.itemImage} class="imagenEnCarrito">
+              <h6 class="shopping-cart-item-title tituloDeItem text-truncate ml-3 mb-0">${producto.itemTitle}</h6>
+          </div>
+      </div>
+      <div class="col-2">
+          <div class="shopping-cart-price d-flex justify-content-center align-items-center h-100 ">
+              <p class="item-price mb-0 precioItemCarrito">${producto.itemPrice}</p>
+          </div>
+      </div>
+      <div class="col-2 align-self-center">
+      <input id="color-${producto.id}" class="inputColor colorItemsCarrito" type="text">
+      </div>
+      <div class="col-5">
+          <div class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 ">
+              <input id="cant-${producto.id}" class="shopping-cart-quantity-input cantidadItemsCarrito col-4 ms-3" type="number" value="1">
+
+              <select id="size-${producto.id}" class="col-4 ms-3 sizeItems">
+              <option>Seleccione una Opcion</option>
+              <option>Unico</option>
+              </select>
+              <button class="btnBorrar btn btn-danger buttonDelete col-2" type="button">X</button>
+          </div>
+      </div>
+    </div>`
     }
   renglonCarrito.innerHTML = contenidoDelCarrito;
   contenedorDelCarrito.append(renglonCarrito);

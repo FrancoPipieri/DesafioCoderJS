@@ -12,5 +12,10 @@
     "img":"../img/Markal.jpg",
     "title":"Crayon Markal",
     "body":"Crayon Markal, la fórmula a base de pintura real tiene un rendimiento de marcaje superior en superficies aceitosas, heladas, húmedas, secas o frías, además de resistir los efectos de la intemperie y los rayos UV. Funciona en todas las superficies. Tiene un tamaño de 17mm. Amplia gama de colores.",
-    "precio":900
+    "precio":900}
+    ,{
+    "img":"../img/mtn.jpg",
+    "title":"Aerosol Montana Hardcore",
+    "body":"Aerosol Montana Hardcore, Herramienta por excelencia en el mundo del graffiti, su rápido secado, buen endurecimiento y durabilidad del color. El aerosol Hardcore tiene una capacidad de 400ml de pintura sintetica para un mayor rendimiento en todas las superficie. El mismo contiene una gama de 142 colores.",
+    "precio":1450
 }]
