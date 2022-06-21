@@ -51,7 +51,7 @@ header{
     padding: 8px;
 }
 .card{
-    width: 70%;
+    width: 80%;
     margin: 10px auto;
     display: flex;
     flex-direction: row;
@@ -134,7 +134,7 @@ header{
 /* End Footer */
 /* Carrito de Compras */
 #carritoCompras{
-    width: 60%;
+    width: 70%;
     margin: 20px auto;
     padding: 10px;
     background-color: rgba(181, 187, 185, 0.8);

@@ -161,7 +161,7 @@ function mostrarCarrito() {
           </div>
       </div>
     </div>`;
-    }else if(producto.itemTitle === "Aerosol Montana Hardcore"){
+    }else if(producto.itemTitle === "Aerosol Mtn"){
       contenidoDelCarrito = `<div class="row itemCarritoCompras border-bottom">
       <div class="col-3">
           <div class="shopping-cart-item d-flex align-items-center h-100 ">
